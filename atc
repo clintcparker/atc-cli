@@ -32,12 +32,6 @@ read({ prompt: 'Password: ', silent: true }, function(er, p) {
   atcModule.runATC(atcOpts);
 })
 
-// prompt('password: ').then(
-//   p => {
-//     let atcOpts = {entries: program.entries, salariedMode: program.salaried, debug:program.debug, password:p};
-//     atcModule.runATC(atcOpts);
-//   } 
-// );
 
 
 
