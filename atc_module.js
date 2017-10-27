@@ -4,12 +4,6 @@ const puppeteer = require('puppeteer');
 var atcModule = { 
     runATC : function (atcOpts){
         (async() => {
-          let password
-        if (atcOpts.password){
-          password = atcOpts.password;
-        } else {
-          password = await prompt('password: ')
-        }
         let devToolsVal = atcOpts.debug
         const browser = await puppeteer.launch({devtools : devToolsVal, headless:!devToolsVal});
         const page = await browser.newPage();
@@ -18,7 +12,7 @@ var atcModule = {
         console.log('opening');
         await page.goto('https://workforcenow.adp.com', {waitUntil: 'networkidle'});
         await page.type('.input1','cparker@mboinc');
-        await page.type('.input2',password);
+        await page.type('.input2',atcOpts.password);
         await page.click('input.primaryButton');
         console.log('login submitted');
         await page.waitForNavigation({waitUntil: 'networkidle', networkIdleTimeout:5000});
