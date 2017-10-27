@@ -1,4 +1,3 @@
-var prompt = require('password-prompt')
 const puppeteer = require('puppeteer');
 
 var atcModule = { 
