@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 var program = require("commander");
-var prompt = require('password-prompt')
+var prompt = require('password-prompt');
+var read = require('read');
+
 const atcModule = require('./atc_module.js');
 
 
@@ -25,12 +27,17 @@ if (!(program.entries && program.username)){
   process.exit();
 }
 
-prompt('password: ').then(
-  p => {
-    let atcOpts = {entries: program.entries, salariedMode: program.salaried, debug:program.debug, password:p};
-    atcModule.runATC(atcOpts);
-  } 
-);
+read({ prompt: 'Password: ', silent: true }, function(er, p) {
+  let atcOpts = {entries: program.entries, salariedMode: program.salaried, debug:program.debug, password:p};
+  atcModule.runATC(atcOpts);
+})
+
+// prompt('password: ').then(
+//   p => {
+//     let atcOpts = {entries: program.entries, salariedMode: program.salaried, debug:program.debug, password:p};
+//     atcModule.runATC(atcOpts);
+//   } 
+// );
 
 
 
