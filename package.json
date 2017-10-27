@@ -2,7 +2,10 @@
   "name": "atc-cli",
   "version": "1.0.0",
   "description": "command line interface for AutoTimeCard",
-  "main": "atc.js",
+  "bin": {
+    "atc":"./atc"
+  },
+  "main": "atc_module.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

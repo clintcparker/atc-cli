@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+var program = require("commander");
+const atcModule = require('./atc_module.js');
+
+
+program
+//.version(package.version)
+.option("-n, --username <name>", "adp username")
+.option("-t, --entries <times>", "time card entries in JSON")
+.option("-s, --salaried", "Salaried Mode")
+.option("-d, --debug", "debug")
+
+
+
+program.parse(process.argv);
+
+if (!process.argv.slice(2).length) {
+  program.outputHelp();
+}
+
+
+if (!(program.entries && program.username)){
+  exit;
+}
+var atcOpts = {entries: program.entries, salariedMode: program.salaried, debug:program.debug};
+
+atcModule.runATC(atcOpts);
+
