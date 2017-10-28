@@ -3,18 +3,24 @@
 var program = require("commander");
 var prompt = require('password-prompt');
 var read = require('read');
+const package = require("./package");
 
 const atcModule = require('./atc_module.js');
 
 
 program
-//.version(package.version)
 .option("-n, --username <name>", "adp username")
-.option("-t, --entries <times>", "time card entries in JSON")
-.option("-s, --salaried", "Salaried Mode")
+.option("-j, --entriesJSON <times>", "time card entries in JSON, Ex: [{\"hours\":\"8\",\"projectCode\":\"12345\"}]")
+.option("-s, --salaried", "salaried mode")
 .option("-d, --debug", "debug")
+.version(package.version)
 
-
+program.on('--help', function(){
+  console.log('  Examples:');
+  console.log('');
+  console.log('     atc -n jsmith@someco -j [{"hours":"8","projectCode","12345"}] -s   ');
+  console.log('');
+});
 
 program.parse(process.argv);
 
@@ -23,12 +29,12 @@ if (!process.argv.slice(2).length) {
 }
 
 
-if (!(program.entries && program.username)){
+if (!(program.entriesJSON && program.username)){
   process.exit();
 }
 
 read({ prompt: 'Password: ', silent: true }, function(er, p) {
-  let atcOpts = {entries: program.entries, salariedMode: program.salaried, debug:program.debug, password:p};
+  let atcOpts = {entries: program.entriesJSON, salariedMode: program.salaried, debug:program.debug, password:p, username:program.username};
   atcModule.runATC(atcOpts);
 })
 
