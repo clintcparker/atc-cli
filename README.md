@@ -27,11 +27,11 @@ atc -n jsmith@someco -j [{"hours":"8","projectCode","12345"}] -s
 This tool has room for improvement. These are the areas so far considered for further development. Feel free to extend this list.
 
 1. Better entry and hour input, something other than JSON from the command line
-    * . maybe -t "12345" 
+    * . maybe `-t "12345"` 
         * . where 12345 defaults to 8 hours
-    * . -t "12345:6,12349:2" 
+    * . or `-t "12345:6,12349:2" `
         * . for more explicit breakdowns
-    * . csv import
+    * . `.csv` import
     * . VSTS integration
 1. Support for non salaried mode
     * . this is currently untested, but should work as long a the JSON is correct
@@ -54,4 +54,4 @@ This tool has room for improvement. These are the areas so far considered for fu
 I've been using VSCode for this, but feel free to use your editor of choice. This tool leverages [puppeteer](https://github.com/GoogleChrome/puppeteer/blob/v0.12.0/docs/api.md#puppeteer), and they are evolving quickly, so please be aware of the changes from version to version. This tool also uses [commander](https://github.com/tj/commander.js/) for the CLI interactions.
 
 ## Thanks
-1. to EBIGGZ for the amazing chrome extension that makes this all possible
+1. to [EBIGGZ](https://github.com/ebiggz) for the amazing chrome extension that makes this all possible
