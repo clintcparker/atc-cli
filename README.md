@@ -27,20 +27,20 @@ atc -n jsmith@someco -j [{"hours":"8","projectCode","12345"}] -s
 This tool has room for improvement. These are the areas so far considered for further development. Feel free to extend this list.
 
 1. Better entry and hour input, something other than JSON from the command line
-    * . maybe `-t "12345"` 
+    * maybe `-t "12345"` 
         * . where 12345 defaults to 8 hours
-    * . or `-t "12345:6,12349:2" `
+    * or `-t "12345:6,12349:2" `
         * . for more explicit breakdowns
-    * . `.csv` import
-    * . VSTS integration
+    * `.csv` import
+    * VSTS integration
 1. Support for non salaried mode
-    * . this is currently untested, but should work as long a the JSON is correct
-    * . definitely needs better docs
+    * this is currently untested, but should work as long a the JSON is correct
+    * definitely needs better docs
 1. Better password management?
-    * . open to ideas
+    * open to ideas
 1. Better output during execution
-    * . a spinner or progress bar
-    * . verbose logging
+    * a spinner or progress bar
+    * verbose logging
 
 ## Contributing
 
